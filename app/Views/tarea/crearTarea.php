@@ -39,9 +39,6 @@
     <?= form_submit("", "Crear tarea", ["class" => "btn-crear"]) ?>
     <?= form_close() ?>
 
-    <?= session("idUsuario"); ?>
-
-    <?= "Hola"; ?>
     
     <!-- <div>
         <div>

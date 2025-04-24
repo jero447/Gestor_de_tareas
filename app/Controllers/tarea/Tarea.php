@@ -19,18 +19,29 @@ class Tarea extends BaseController
         echo view("layout/header");
         echo view("tarea/crearTarea.php");
     }
+    
 
     public function crearTarea(){
         $data = [
             "idUsuario" => session("idUsuario"),
             "titulo" => $this->request->getPost("titulo"),
             "descripcion" => $this->request->getPost("descripcion"),
-            "prioridad" => $this->request->getPost("prioridad"),
+            "prioridad" => mayuscula($this->request->getPost("prioridad")),
             "fecha_de_vencimiento" => $this->request->getPost("fecha-vencimiento")
         ];
 
         $this->model->insertarTarea($data);
         return redirect()->to('/');
+    }
+
+    public function pantallaTarea($id){
+
+        $tarea = $this->model->where("idTarea",$id)->first();
+
+        echo view("layout/head");
+        echo view("layout/header");
+        echo view("tarea/tarea", ["tarea"=> $tarea]);
+        
     }
 
 }

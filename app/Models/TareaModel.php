@@ -24,4 +24,8 @@ class TareaModel extends Model
         return $this->where("idUsuario",session("idUsuario"))->findAll();
     }
 
+    public function obtenerTareaPorId($id){
+        return $this->where("idTarea", $id)->first();
+    }
+
 }

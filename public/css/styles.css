@@ -75,7 +75,6 @@ body{
 main{
     flex: 1;
     display: flex;
-    gap: 1rem;
 }
 
 .container-sidenav{
@@ -140,9 +139,99 @@ main{
     border: 1px solid red;
 }
 
-.tarea{
-    border: 1px solid red;
+
+
+.container-lista-tareas{
+    background-color: #e9ecef;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #CED4DA;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
+.container-lista-tareas h2{
+    margin-left: 10px;
+}
+
+.lista-tareas{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 35px;
+    padding-top: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tarea{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background-color: #ffffff;
+    color: #212529;
+    box-sizing: border-box;
+    border: 1px solid #dee2e6;
+    border-left: 6px solid #2364AA;  
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.tarea:hover {
+    border-color: rgba(35,100,170,0.4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.alta{
+    border-left-color: #dc3545; 
+}
+.alta:hover{
+    border-left-color: rgba(220, 53, 69, 0.6);
+    border-color: rgba(220, 53, 69,0.4);
+}
+.normal{
+    border-left-color: #ffc107; 
+    
+}
+.normal:hover{
+    border-left-color: rgba(255, 193, 7, 0.6);
+    border-color: rgba(255, 193, 7,0.4);
+}
+
+.info-tarea{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.btn-ver{
+    padding: 0.5rem 1rem;
+    background-color: #2364AA;        
+    color: #FFFFFF;                  
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;          
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(35,100,170,0.2);
+    transition: background-color .2s, box-shadow .2s;
+    cursor: pointer;
+}
+
+.btn-ver:hover{
+    background-color: #1A4F85;        /* un tono un poco más oscuro */
+    box-shadow: 0 4px 8px rgba(35,100,170,0.3);
+}
+
 
 /* Footer */
 
@@ -284,3 +373,119 @@ footer{
 .contanier-crear-tarea form input[type="submit"]{
     margin-top: 50px;
 }
+.container-datos-tarea{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #c5c6c7;
+    height: 450px;
+    width: 650px;
+    gap: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.titulo-tarea{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.ver-info{
+    font-size: 20px;
+}
+.datos-tarea{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+
+
+.tarea-card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    padding: 36px;
+    max-width: 700px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', sans-serif;
+    border-left: 10px solid #3498db;
+    transition: transform 0.2s ease;
+    min-width: 540px;
+  }
+  
+  .tarea-card.alta{
+    border-left: 10px solid #e74c3c;
+  }
+
+  .tarea-card.normal{
+    border-left: 10px solid #f39c12;
+  }
+
+
+  .tarea-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .tarea-titulo {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin: 0;
+  }
+  
+  .tarea-prioridad {
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 1.05em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .tarea-prioridad.alta {
+    background-color: #e74c3c;
+  }
+  
+  .tarea-prioridad.normal {
+    background-color: #f39c12;
+  }
+  
+  .tarea-prioridad.baja {
+    background-color: #3498db;
+  }
+  
+  .tarea-descripcion {
+    color: #444;
+    font-size: 1.15em;
+    margin-bottom: 30px;
+    line-height: 1.6em;
+  }
+  
+  .tarea-detalles {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.05em;
+    color: #555;
+  }
+  
+  .tarea-estado {
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .tarea-estado.pendiente {
+    background-color: #e67e22;
+  }
+  
+  .tarea-estado.en-proceso {
+    background-color: #3498db;
+  }
+  
+  .tarea-estado.completada {
+    background-color: #2ecc71;
+  }
+  

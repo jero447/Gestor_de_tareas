@@ -22,3 +22,5 @@ $routes->get('/miCuenta', 'MiCuenta::miCuenta');
 $routes->get('/formCrearTarea', 'tarea\Tarea::formularioCreacion');
 
 $routes->post('/crearTarea', 'tarea\Tarea::crearTarea');
+
+$routes->get('/pantallaTarea/(:num)', 'tarea\Tarea::pantallaTarea/$1');
