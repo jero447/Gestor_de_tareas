@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-04-2025 a las 21:38:56
+-- Tiempo de generación: 24-04-2025 a las 21:48:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -60,7 +60,9 @@ CREATE TABLE `tareas` (
 --
 
 INSERT INTO `tareas` (`idTarea`, `titulo`, `descripcion`, `prioridad`, `estado`, `fecha_de_vencimiento`, `idUsuario`) VALUES
-(4, 'Primera tarea', 'descripcion', 'baja', 'Definido', '2025-04-08', 8);
+(10, 'Primera tarea', 'descripcion', 'Alta', 'Definido', '2025-04-19', 8),
+(11, 'Segunda Tarea', 'descripcion segunda', 'Normal', 'Definido', '2025-04-18', 8),
+(12, 'Tercera Tarea', 'descripcion tercera', 'Baja', 'Definido', '2025-04-16', 8);
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ ALTER TABLE `sub_tarea`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `idTarea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idTarea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
