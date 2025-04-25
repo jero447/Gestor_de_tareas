@@ -26,3 +26,5 @@ $routes->post('/crearTarea', 'tarea\Tarea::crearTarea');
 $routes->get('/pantallaTarea/(:num)', 'tarea\Tarea::pantallaTarea/$1');
 
 $routes->post('/eliminarTarea/(:num)', 'tarea\Tarea::eliminarTarea/$1');
+
+$routes->get('/pantallaActualizarTarea/(:num)', 'tarea\Tarea::pantallaActualizarTarea/$1');

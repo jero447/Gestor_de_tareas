@@ -32,4 +32,8 @@ class TareaModel extends Model
         return $this->delete($id);
     }
 
+    public function actualizarTarea($id,$data){
+        return $this->update($id,$data);
+    }
+    
 }

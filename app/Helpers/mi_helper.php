@@ -5,3 +5,4 @@ function mayuscula($string, $encoding = 'UTF-8') {
     $rest = mb_substr($string, 1, null, $encoding);
     return mb_strtoupper($firstChar, $encoding) . $rest;
 }
+

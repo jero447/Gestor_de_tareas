@@ -19,7 +19,7 @@
                 <?= form_open(site_url("eliminarTarea/" . $tarea["idTarea"]),['method' => 'post'])?>
                 <?= form_button(["type" => "submit", "class" => "btn-eliminar", 'content' => 'Eliminar']) ?>
                 <?= form_close() ?>
-                <a href="" class="btn-modificar">Modificar</a>    
+                <a href="<?= site_url("pantallaActualizarTarea/" . $tarea["idTarea"]) ?>" class="btn-modificar">Modificar</a>    
             </div>
 
         </div>

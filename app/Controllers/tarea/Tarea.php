@@ -49,4 +49,13 @@ class Tarea extends BaseController
         return redirect()->to('/');
     }
 
+    public function pantallaActualizarTarea($id){
+
+        $tarea = $this->model->where("idTarea",$id)->first();
+
+        echo view("layout/head");
+        echo view("layout/header");
+        echo view("tarea/actualizarTarea", ["tarea" => $tarea]);
+    }
+
 }
