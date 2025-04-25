@@ -44,4 +44,9 @@ class Tarea extends BaseController
         
     }
 
+    public function eliminarTarea($id){
+        $this->model->eliminacionTarea($id);
+        return redirect()->to('/');
+    }
+
 }

@@ -24,3 +24,5 @@ $routes->get('/formCrearTarea', 'tarea\Tarea::formularioCreacion');
 $routes->post('/crearTarea', 'tarea\Tarea::crearTarea');
 
 $routes->get('/pantallaTarea/(:num)', 'tarea\Tarea::pantallaTarea/$1');
+
+$routes->post('/eliminarTarea/(:num)', 'tarea\Tarea::eliminarTarea/$1');

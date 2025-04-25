@@ -466,6 +466,7 @@ footer{
   .tarea-detalles {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.05em;
     color: #555;
   }
@@ -475,17 +476,45 @@ footer{
     border-radius: 16px;
     font-weight: bold;
     color: white;
-  }
-  
-  .tarea-estado.pendiente {
-    background-color: #e67e22;
-  }
-  
-  .tarea-estado.en-proceso {
     background-color: #3498db;
   }
-  
-  .tarea-estado.completada {
+  .btn-eliminar{
+    background-color: #e67e22;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+
+  .btn-eliminar:hover {
+    background-color: #ca6f1e;
+  }
+
+  .btn-modificar{
     background-color: #2ecc71;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-modificar:hover {
+    background-color: #28b463; 
+  }
+
+  .botones-tarea{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+
   }
   

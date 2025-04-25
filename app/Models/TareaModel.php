@@ -28,4 +28,8 @@ class TareaModel extends Model
         return $this->where("idTarea", $id)->first();
     }
 
+    public function eliminacionTarea($id){
+        return $this->delete($id);
+    }
+
 }
