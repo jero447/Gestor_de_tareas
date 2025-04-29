@@ -28,3 +28,13 @@ $routes->get('/pantallaTarea/(:num)', 'tarea\Tarea::pantallaTarea/$1');
 $routes->post('/eliminarTarea/(:num)', 'tarea\Tarea::eliminarTarea/$1');
 
 $routes->get('/pantallaActualizarTarea/(:num)', 'tarea\Tarea::pantallaActualizarTarea/$1');
+
+$routes->post('/actualizarTarea/(:num)', 'tarea\Tarea::modificarTarea/$1');
+
+$routes->get('/formCrearSubTarea/(:num)', 'subtarea\SubTarea::formularioCreacion/$1');
+
+$routes->post('/crearSubTarea', 'subtarea\SubTarea::crearSubTarea');
+
+$routes->get('/subTarea/(:num)', 'subtarea\SubTarea::pantallaSubTarea/$1');
+
+$routes->post('/eliminarSubTarea/(:num)', 'subtarea\SubTarea::eliminarSubTarea/$1');

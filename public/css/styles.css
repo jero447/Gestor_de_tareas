@@ -511,10 +511,85 @@ footer{
     background-color: #28b463; 
   }
 
-  .botones-tarea{
+  .btn-eliminar-modificar{
     margin-top: 35px;
     display: flex;
     justify-content: space-between;
 
   }
-  
+
+  .btn-agregar-subtarea {
+    background-color: #9b59b6;
+    color: white;
+    padding: 12px 24px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-agregar-subtarea:hover {
+    background-color: #8e44ad; 
+}
+
+  .container-sub-tareas{
+    background-color: #f7f9fa;
+    border: 1px solid #dfe4ea;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 500px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .subtarea {
+    background-color: #ffffff;
+    border: 1px solid #dcdde1;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+    border-left: 6px solid #2364AA;  
+    text-decoration: none;
+}
+
+.container-subtarea{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+}
+
+
+.subtarea.alta{
+    border-left: 6px solid #dc3545;  
+}
+
+.subtarea.normal{
+    border-left: 6px solid #ffc107;  
+}
+
+.subtarea:hover {
+    background-color: #f1f2f6;
+}
+
+.text-listado{
+    margin-bottom: 20px;
+}
+
+.subtarea-titulo {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2f3640;
+}
+
+
+
+

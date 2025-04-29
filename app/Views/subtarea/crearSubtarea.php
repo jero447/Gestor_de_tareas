@@ -1,16 +1,16 @@
 <div class="contanier-crear-tarea">
-    <h2>Modificar Tarea</h2>
+    <h2>Fomulario de creacion de subtarea</h2>
     
-    <?= form_open("/actualizarTarea/" . $tarea["idTarea"],["method"=> "post"]) ?>
+    <?= form_open("crearSubTarea",["method"=> "post"]) ?>
     <div class="form-crear-tarea">
         <div class="titulo-descripcion">
             <div>
                 <?= form_label("Titulo:","titulo")?>
-                <?= form_input("titulo", $tarea["titulo"]) ?>
+                <?= form_input("titulo") ?>
             </div>
             <div>
                 <?= form_label("Descripcion:","descripcion")?>
-                <?= form_input("descripcion", $tarea["descripcion"]) ?>
+                <?= form_input("descripcion") ?>
             </div>
             
         </div>
@@ -19,9 +19,9 @@
                 <?= form_label("Prioridad:","prioridad")?>
                 <select name="prioridad">
                     <option selected disabled>Seleccione una prioridad</option>
-                    <option value="baja" <?php if( strtolower($tarea["prioridad"])  == "baja" ){ echo "selected"; } ?> >Baja</option>
-                    <option value="normal" <?php if( strtolower($tarea["prioridad"]) == "normal" ){ echo "selected"; } ?> >Normal</option>
-                    <option value="alta" <?php if( strtolower($tarea["prioridad"]) == "alta" ){ echo "selected"; } ?> >Alta</option>
+                    <option value="baja">Baja</option>
+                    <option value="normal">Normal</option>
+                    <option value="alta">Alta</option>
                 </select>
             </div>
             <div>
@@ -29,14 +29,15 @@
                 <?= form_input([
                     "type" => "date",
                     "name" => "fecha-vencimiento"
-                ],$tarea["fecha_de_vencimiento"]) ?>
+                ]) ?>
 
             </div>
             
         </div>
+        <?= form_hidden("idTarea", $idTarea) ?>
     </div>
     
-    <?= form_submit("", "Modificar", ["class" => "btn-crear"]) ?>
+    <?= form_submit("", "Crear tarea", ["class" => "btn-crear"]) ?>
     <?= form_close() ?>
 
 </div>
