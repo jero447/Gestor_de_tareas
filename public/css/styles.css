@@ -10,7 +10,7 @@
 /* Header */
 
 header{
-    background-color: #2364AA;
+    background-color: #343A40;
     padding: 1.5rem;
     color: aliceblue;
 }
@@ -78,7 +78,7 @@ main{
 }
 
 .container-sidenav{
-    background-color: #15365c;
+    background-color: #212529;
     height: 100vh;
     width: 20rem;
 }
@@ -87,8 +87,16 @@ main{
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     color: aliceblue;
+    margin-top: 0.7rem;
+}
+
+.sidenav > p {
+    margin-left: 10px;
+    margin-top: 3.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .container-crear{
@@ -113,30 +121,30 @@ main{
     background-color: #218838; 
 }
 
-.container-completadas{
-    margin: auto;
-    margin-top: 12px;
-}
+
 
 .btn-completadas{
-    background-color: #6c757d; /* Gris oscuro */
-    color: white; /* Texto blanco */
+    background-color: #6c757d;
+    color: white;
     font-size: 16px;
     padding: 12px 20px;
     border: none;
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
     text-decoration: none;
 }
 
 .btn-completadas:hover {
-    background-color: #5a6368; /* Gris más oscuro cuando se pasa el mouse */
+    background-color: #5a6368; 
 }
 
 .filtros{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    margin-left: 10px;
 }
 
 
@@ -228,10 +236,22 @@ main{
 }
 
 .btn-ver:hover{
-    background-color: #1A4F85;        /* un tono un poco más oscuro */
+    background-color: #1A4F85;        
     box-shadow: 0 4px 8px rgba(35,100,170,0.3);
 }
 
+.oculto{
+    display: none;
+}
+
+.btn-filtro-activo {
+    background-color: #007bff;
+    color: #fff;
+}
+.btn-filtro-activo:hover{
+    background-color: #007bff;
+    color: #fff;
+}
 
 /* Footer */
 
@@ -298,20 +318,38 @@ footer{
 
 .container-miCuenta{
 
-    width: 500px;
-    background-color: antiquewhite;
+    width: 520px;
+    background-color: rgba(206, 212, 218, 0.4);
     margin: auto;
     margin-top: 100px;
     padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 
 }
+
 .nombre-apellido{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    background-color: rgba(206, 212, 218, 0.3);
+    border-radius: 10px;
+}
+.gmail{
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    background-color: rgba(206, 212, 218, 0.3);
+    border-radius: 10px;
 }
 .container-miCuenta h2{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: #343a40;
+}
+.label{
+    font-weight: 600;
+    color: #495057;
 }
 .datos-cuenta{
     display: flex;
@@ -321,6 +359,9 @@ footer{
 }
 .botones-miCuenta{
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .btn-cerrar-sesion{
     text-decoration: none;
@@ -333,10 +374,10 @@ footer{
     border: solid 3px transparent;
     transition: border 0.2s ease-in;
     transition: color 0.1s ease;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
 }
 .btn-cerrar-sesion:hover{
-    border: solid 3px black;
     color: #f0eded;
 }
 
@@ -344,61 +385,60 @@ footer{
 /* Crear Tarea */
 
 .contanier-crear-tarea{
-    background-color: antiquewhite;
-    margin: auto;
-    width: 750px;
-    padding: 50px;
-    font-size: 20px;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(206, 212, 218, 0.4);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .contanier-crear-tarea h2{
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
+    color: #333;
     font-size: 33px;
 }
 
 .form-crear-tarea{
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
-.prioridad-fechaVencimiento{
+.titulo-descripcion, .prioridad-fechaVencimiento{
     display: flex;
-    justify-content: space-between;
+    gap: 35px;
+    
 }
 .titulo-descripcion{
-    display: flex;
-    justify-content: space-between;
-}
-.contanier-crear-tarea form input[type="submit"]{
-    margin-top: 50px;
-}
-.container-datos-tarea{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    background-color: #c5c6c7;
-    height: 450px;
-    width: 650px;
-    gap: 20px;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-.titulo-tarea{
-    text-align: center;
-    margin-bottom: 30px;
-}
-.ver-info{
-    font-size: 20px;
-}
-.datos-tarea{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 20px;
+    gap: 65px;
 }
 
+input[type="text"],
+input[type="date"],
+select {
+    padding: 4px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border: 2px solid #999;
+}
+ 
+.contanier-crear-tarea form input[type="submit"]{
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+
+/* Card Tarea */
 
 
 .tarea-card {
@@ -535,6 +575,10 @@ footer{
     background-color: #8e44ad; 
 }
 
+
+/* Subtarea */
+
+
   .container-sub-tareas{
     background-color: #f7f9fa;
     border: 1px solid #dfe4ea;
@@ -591,5 +635,46 @@ footer{
 }
 
 
+/* Mensaje de alerta */
+
+.alerta-subtarea {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 16px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 43px;
+  }
+
+  .btn-volver-home {
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-size: 17px;
+  }
+  
+  .btn-volver-home:hover {
+    background-color: #0056b3;
+  }
 
 

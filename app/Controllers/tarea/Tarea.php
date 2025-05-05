@@ -40,11 +40,11 @@ class Tarea extends BaseController
 
         $tarea = $this->modelTarea->where("idTarea",$id)->first();
 
-        $listaSubTareas = $this->modelSubTarea->obtenerSubTareas($tarea["idTarea"]);
+        $listaSubTareas = $this->modelSubTarea->obtenerSubTareasConCantidad($tarea["idTarea"]);
 
         echo view("layout/head");
         echo view("layout/header");
-        echo view("tarea/tarea", ["tarea"=> $tarea, "listaSubTareas" => $listaSubTareas]);
+        echo view("tarea/tarea", ["tarea"=> $tarea, "listaSubTareas" => $listaSubTareas["subtareas"]]);
         
     }
 

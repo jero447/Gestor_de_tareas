@@ -18,7 +18,7 @@ class IniciarSesion extends BaseController{
     }
 
     public function login(){
-        echo view("layout/head");
+        echo view("layout/head-login");
         echo view("login/IniciarSesion");
         
     }

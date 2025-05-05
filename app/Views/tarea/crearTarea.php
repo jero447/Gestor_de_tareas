@@ -38,16 +38,4 @@
     
     <?= form_submit("", "Crear tarea", ["class" => "btn-crear"]) ?>
     <?= form_close() ?>
-
-    
-    <!-- <div>
-        <div>
-            <p>Titulo:</p>
-            <p>Descripcion:</p>
-        </div>
-        <div>
-            <p>Prioridad:</p>
-            <p>Fecha de nacimiento</p>
-        </div>
-    </div> -->
 </div>

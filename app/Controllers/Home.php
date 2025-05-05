@@ -13,18 +13,16 @@ class Home extends BaseController
         $this->model = new TareaModel();
     }
     
+
+
     public function index()
     {   
         echo view("layout/head");
         echo view("layout/header");
-        echo view("home", ["tareas" => $this->listaTareas()]);
+        echo view("home", ["tareas" => $this->model->obtenerTareas()]);
         echo view("layout/footer");
     }
 
-    public function listaTareas(){
-
-        return $this->model->obtenerTareas();
-
-    }
+   
 
 }

@@ -1,65 +1,242 @@
-<main>
+<?php
+function mostrarTareas($tareasFiltradas) {
 
+    foreach($tareasFiltradas as $tarea):
+       if($tarea["prioridad"] === "Alta"){
+            echo "<div class='tarea alta'>
+                    <div class='info-tarea'>
+                        <h3>" . $tarea['titulo'] . "</h3>
+                        <p>Prioridad: " . $tarea['prioridad'] . "</p>
+                        <p>Estado: " . $tarea['estado'] . "</p>
+                        <p>Vencimiento: " . $tarea['fecha_de_vencimiento'] . "</p>
+                    </div>
+                    <a class='btn-ver' href='" . site_url('pantallaTarea/' . $tarea['idTarea']) . "'>Ver Tarea</a>
+                </div>";
+       }
+                
+       elseif($tarea["prioridad"] === "Normal"){
+        echo '<div class="tarea normal">
+                    <div class="info-tarea">
+                        <h3>' . $tarea["titulo"] . '</h3>
+                        <p>Prioridad:' . " " . $tarea["prioridad"] . '</p>
+                        <p>Estado: ' . " " . $tarea["estado"] . '</p>
+                        <p>Vencimiento:' . " " . $tarea["fecha_de_vencimiento"] . '</p>
+                    </div>
+                    <a class="btn-ver" href="' . site_url("pantallaTarea/" . $tarea["idTarea"]) . '">Ver Tarea</a>
+              </div>';
+        }
+    
+
+        else {
+            echo '<div class="tarea">
+                    <div class="info-tarea">
+                        <h3>' . $tarea["titulo"] . '</h3>
+                        <p>Prioridad: ' . $tarea["prioridad"] . '</p>
+                        <p>Estado: ' . $tarea["estado"] . '</p>
+                        <p>Vencimiento: ' . $tarea["fecha_de_vencimiento"] . '</p>
+                    </div>
+                    <a class="btn-ver" href="' . site_url("pantallaTarea/" . $tarea["idTarea"]) . '">Ver Tarea</a>
+                </div>';
+        }
+
+    endforeach;
+
+}
+
+
+function ordenarPorVencimiento($tareas){
+
+    $tareasPorVencimiento = $tareas;
+    usort($tareasPorVencimiento,function($a,$b){
+        $fechaActual = strtotime(date("Y-m-d"));
+
+        $segA = strtotime($a["fecha_de_vencimiento"]) - $fechaActual;
+        $segB =  strtotime($b["fecha_de_vencimiento"]) - $fechaActual;
+
+        return $segA -$segB;
+    });
+
+    return $tareasPorVencimiento;
+
+}
+
+function ordenarPorPrioridad($tareas){
+
+    $tareasPorPrioridad = $tareas;
+    usort($tareasPorPrioridad, function($a,$b){
+        $ordenPrioridad = [
+            "Alta" => 1,
+            "Normal" => 2,
+            "Baja" => 3
+        ];
+
+        $prioridadA = $ordenPrioridad[$a["prioridad"]];
+        $prioridadB = $ordenPrioridad[$b["prioridad"]];
+
+    
+        return $prioridadA - $prioridadB;
+
+    });
+
+    return $tareasPorPrioridad;
+
+}
+
+?>
+
+
+
+
+<main>
 
 <div class="container-sidenav">
     <div class="sidenav">
         <div class="container-crear">
             <a class="btn-crear" href="<?= site_url("formCrearTarea") ?>">Crear una nueva tarea</a>
         </div>
-        <div class="container-completadas">
-            <a class="btn-completadas" href="">Tareas Completadas</a>
-        </div>
+        
+        <p>Filtros</p>
+
         <div class="filtros">
-            <p>Filtros</p>
+            <div class="container-btn-filtros">
+                <button class="btn-completadas" id="btn-completadas" >Tareas Completadas</button>
+            </div>
+            <div class="container-btn-filtros">
+                <button class="btn-completadas btn-filtro-activo" id="btn-incompletas" >Tareas Incompletas</button>
+            </div>
+            <div class="container-btn-filtros">
+                <button class="btn-completadas" id="btn-por-vencimiento" > Mostrar Por Vencimiento</button>
+            </div>
+            <div class="container-btn-filtros">
+                <button class="btn-completadas" id="btn-por-prioridad" > Mostrar Por Prioridad</button>
+            </div>
         </div>
+        
+        
     </div>
 </div>
 
-<div class="container-lista-tareas">
+
+<!-- Lista de tareas incompletas -->
+
+
+<div class="container-lista-tareas" id="listaTareas">
     <h2>Lista de Tareas</h2>
     <div class="lista-tareas">
         
-        <?php foreach($tareas as $tarea):?>
-            <?php if($tarea["prioridad"] === "Alta"): ?>
-                    
-                <div class="tarea alta">
-                    <div class="info-tarea">
-                        <h3><?= $tarea["titulo"];?></h3>
-                        <p>Prioridad:<?= " " . $tarea["prioridad"] ?></p>
-                        <p>Estado:<?=  " " . $tarea["estado"] ?></p>
-                    </div>
-                    <a class="btn-ver" href="<?= site_url("pantallaTarea/" . $tarea["idTarea"]) ?>">Ver Tarea</a>
-                </div>
-                  
-            <?php elseif($tarea["prioridad"] === "Normal"):?>
+        <?php mostrarTareas($tareas) ?>
 
-                <div class="tarea normal">
-                    <div class="info-tarea">
-                        <h3><?= $tarea["titulo"];?></h3>
-                        <p>Prioridad:<?= " " . $tarea["prioridad"] ?></p>
-                        <p>Estado: <?= " " . $tarea["estado"] ?></p>
-                    </div>
-                    <a class="btn-ver" href="<?= site_url("pantallaTarea/" . $tarea["idTarea"]) ?>">Ver Tarea</a>
-                </div>
-
-            <?php else:?>
-
-            <div class="tarea">
-                <div class="info-tarea">
-                    <h3><?= $tarea["titulo"];?></h3>
-                    <p>Prioridad: <?= " " . $tarea["prioridad"] ?></p>
-                    <p>Estado: <?=  " " . $tarea["estado"] ?></p>
-                </div>
-                <a class="btn-ver" href="<?= site_url("pantallaTarea/" . $tarea["idTarea"]) ?>">Ver Tarea</a>
-            </div>
-
-            <?php endif?>
-
-        <?php endforeach?>
-
-        
     </div>
+
 </div>
+
+
+<!-- Lista de tareas completadas -->
+
+
+<div class="container-lista-tareas oculto" id="listaTareasCompletadas">
+    <h2>Lista de Tareas Completadas</h2>
+    <div class="lista-tareas">
+            
+        <?php mostrarTareas(array_filter($tareas, function($tarea){
+        return $tarea["estado"] === "Completado";
+        })) ?>
+
+    </div>
+
+</div>
+
+
+<!-- Lista de tareas por vencimiento -->
+
+
+<div class="container-lista-tareas oculto" id="listaTareasPorVencimiento">
+    <h2>Lista de Tareas Por Vencimiento</h2>
+    <div class="lista-tareas">
+            
+        <?php mostrarTareas(ordenarPorVencimiento($tareas)); ?>
+
+    </div>
+
+</div>
+
+
+<!-- Lista de tareas por prioridad -->
+
+
+<div class="container-lista-tareas oculto" id="listaTareasPorPrioridad">
+    <h2>Lista de Tareas Por Prioridad</h2>
+    <div class="lista-tareas">
+            
+        <?php mostrarTareas(ordenarPorPrioridad($tareas)); ?>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    let botonCompletadas = document.getElementById("btn-completadas")
+    let botonIncompletas = document.getElementById("btn-incompletas")
+    let botonVencimiento = document.getElementById("btn-por-vencimiento")
+    let botonPrioridad = document.getElementById("btn-por-prioridad")
+
+    let listaTarea = document.getElementById("listaTareas")
+    let listaTareaCompletada = document.getElementById("listaTareasCompletadas")
+    let listaPorVencimiento = document.getElementById("listaTareasPorVencimiento")
+    let listaPorPrioridad = document.getElementById("listaTareasPorPrioridad")
+
+    botonCompletadas.addEventListener("click", () => {
+        listaTareaCompletada.classList.remove("oculto")
+        listaTarea.classList.add("oculto")
+        listaPorVencimiento.classList.add("oculto")
+        listaPorPrioridad.classList.add("oculto")
+
+        botonCompletadas.classList.add("btn-filtro-activo")
+        botonIncompletas.classList.remove("btn-filtro-activo")
+        botonVencimiento.classList.remove("btn-filtro-activo")
+        botonPrioridad.classList.remove("btn-filtro-activo")
+    })
+
+    botonIncompletas.addEventListener("click", () =>{
+        listaTarea.classList.remove("oculto")
+        listaTareaCompletada.classList.add("oculto")
+        listaPorVencimiento.classList.add("oculto")
+        listaPorPrioridad.classList.add("oculto")
+
+        botonIncompletas.classList.add("btn-filtro-activo")
+        botonCompletadas.classList.remove("btn-filtro-activo")
+        botonVencimiento.classList.remove("btn-filtro-activo")
+        botonPrioridad.classList.remove("btn-filtro-activo")
+    })
+
+    botonVencimiento.addEventListener("click", () => {
+        listaPorVencimiento.classList.remove("oculto")
+        listaTarea.classList.add("oculto")
+        listaTareaCompletada.classList.add("oculto")
+        listaPorPrioridad.classList.add("oculto")
+
+        botonVencimiento.classList.add("btn-filtro-activo")
+        botonCompletadas.classList.remove("btn-filtro-activo")
+        botonPrioridad.classList.remove("btn-filtro-activo")
+        botonIncompletas.classList.remove("btn-filtro-activo")
+    })
+
+    botonPrioridad.addEventListener("click", () =>{
+        listaPorPrioridad.classList.remove("oculto")
+        listaTarea.classList.add("oculto")
+        listaTareaCompletada.classList.add("oculto")
+        listaPorVencimiento.classList.add("oculto")
+
+        botonPrioridad.classList.add("btn-filtro-activo")
+        botonCompletadas.classList.remove("btn-filtro-activo")
+        botonIncompletas.classList.remove("btn-filtro-activo")
+        botonVencimiento.classList.remove("btn-filtro-activo")
+    })
+
+</script>
 
 </main>
 

@@ -38,3 +38,7 @@ $routes->post('/crearSubTarea', 'subtarea\SubTarea::crearSubTarea');
 $routes->get('/subTarea/(:num)', 'subtarea\SubTarea::pantallaSubTarea/$1');
 
 $routes->post('/eliminarSubTarea/(:num)', 'subtarea\SubTarea::eliminarSubTarea/$1');
+
+$routes->get('/pantallaActualizarSubTarea/(:num)', 'subtarea\SubTarea::pantallaActualizarSubTarea/$1');
+
+$routes->post('/actualizarSubTarea/(:num)', 'subtarea\SubTarea::modificarSubTarea/$1');

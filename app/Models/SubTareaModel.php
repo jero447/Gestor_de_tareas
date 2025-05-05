@@ -18,11 +18,17 @@ class SubTareaModel extends Model
 
         return $this->insert($data);
  
-     }
+    }
 
-     public function obtenerSubTareas($idTarea){
+    public function obtenerSubTareasConCantidad($idTarea){
 
-        return $this->where("idTarea", $idTarea)->findAll();
+        $subtareas = $this->where("idTarea", $idTarea)->findAll();
+        $cantidad = count($subtareas);
+
+        return [
+            "subtareas" => $subtareas,
+            "cantidad" => $cantidad
+        ];
 
     }
 
@@ -34,5 +40,29 @@ class SubTareaModel extends Model
     public function obtenerSubTareaPorId($id){
         return $this->where("idSubTarea", $id)->first();
     }
+
+    public function actualizarSubTarea($id,$data){
+        return $this->update($id,$data);
+    }
+
+    public function obtenerDatosUnion(){
+        
+        $builder = $this->db->table('sub_tarea');
+
+        $builder->select("idTarea, tareas.estado");
+
+        $builder->join("tareas", "tareas.idTarea = sub_tarea.idTarea");
+
+        $query = $builder->get();
+
+        $results = $query->getResult();
+
+        return $results;
+
+    }
+
+
+
+
 
 }
