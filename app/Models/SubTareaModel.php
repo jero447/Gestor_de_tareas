@@ -11,13 +11,17 @@ class SubTareaModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ["titulo","descripcion","prioridad","estado","fecha_de_vencimiento","idTarea"];
+    protected $allowedFields    = ["titulo","descripcion","prioridad","estado","fecha_de_vencimiento","idResponsable" ,"idTarea"];
 
 
     public function insertarSubTarea($data){
 
         return $this->insert($data);
  
+    }
+
+    public function obtenerTodasSubtareas(){
+        return $this->findAll();
     }
 
     public function obtenerSubTareasConCantidad($idTarea){

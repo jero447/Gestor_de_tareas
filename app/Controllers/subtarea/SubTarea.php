@@ -6,16 +6,19 @@ use App\Controllers\BaseController;
 
 use App\Models\SubTareaModel;
 use App\Models\TareaModel;
+use App\Models\UsuarioModel;
 
 class SubTarea extends BaseController
 {
 
     protected $modelSubTarea;
     protected $modelTarea;
+    protected $modelUsuario;
 
     public function __construct() {
         $this->modelSubTarea = new SubTareaModel();
         $this->modelTarea = new TareaModel();
+        $this->modelUsuario = new UsuarioModel();
     }
     
     public function formularioCreacion($idTarea){
@@ -46,7 +49,7 @@ class SubTarea extends BaseController
 
         echo view("layout/head");
         echo view("layout/header"); 
-        echo view("subtarea/subtarea", ["subTarea" => $subTarea]);
+        echo view("subtarea/subtarea", ["subTarea" => $subTarea, "usuarios" => $this->modelUsuario->obtenerUsuarios(), "usuarioResponsable" => $this->modelUsuario->obtenerPorId($subTarea["idResponsable"])]);
 
 
     }
@@ -100,6 +103,20 @@ class SubTarea extends BaseController
         }
 
         return redirect()->to("/pantallaTarea/" . $subTarea["idTarea"]);
+    }
+
+
+    public function asignarResponsable(){
+
+        $data = [
+            "idResponsable" => $this->request->getPost("responsables"),
+        ];
+
+        $idSubTarea = $this->request->getPost("idSubTarea");
+
+        $this->modelSubTarea->actualizarSubTarea($idSubTarea,$data);
+
+        return redirect()->to('/subTarea/' . $idSubTarea);
     }
 
 }

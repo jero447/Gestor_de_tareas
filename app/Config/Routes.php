@@ -42,3 +42,5 @@ $routes->post('/eliminarSubTarea/(:num)', 'subtarea\SubTarea::eliminarSubTarea/$
 $routes->get('/pantallaActualizarSubTarea/(:num)', 'subtarea\SubTarea::pantallaActualizarSubTarea/$1');
 
 $routes->post('/actualizarSubTarea/(:num)', 'subtarea\SubTarea::modificarSubTarea/$1');
+
+$routes->post('/anadirResponsable', 'subtarea\SubTarea::asignarResponsable');

@@ -64,7 +64,7 @@
                 <?= form_close() ?>
             </div>
 
-            <div class="btn-eliminar-modificar">
+            <div class="btn-eliminar-modificar-tarea">
                 <?= form_open(site_url("eliminarTarea/" . $tarea["idTarea"]),['method' => 'post'])?>
                 <?= form_button(["type" => "submit", "class" => "btn-eliminar", 'content' => 'Eliminar']) ?>
                 <?= form_close() ?>
@@ -139,7 +139,7 @@
                 <?= form_close() ?>
             </div>
 
-            <div class="btn-eliminar-modificar">
+            <div class="btn-eliminar-modificar-tarea">
                 <?= form_open(site_url("eliminarTarea/" . $tarea["idTarea"]),['method' => 'post'])?>
                 <?= form_button(["type" => "submit", "class" => "btn-eliminar", 'content' => 'Eliminar']) ?>
                 <?= form_close() ?>
@@ -215,7 +215,7 @@
                 <?= form_close() ?>
             </div>
 
-            <div class="btn-eliminar-modificar">
+            <div class="btn-eliminar-modificar-tarea">
                 <?= form_open(site_url("eliminarTarea/" . $tarea["idTarea"]),['method' => 'post'])?>
                 <?= form_button(["type" => "submit", "class" => "btn-eliminar", 'content' => 'Eliminar']) ?>
                 <?= form_close() ?>

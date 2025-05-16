@@ -28,6 +28,14 @@ class UsuarioModel extends Model{
 
     }
 
+    public function obtenerUsuarios(){
+        return $this->findAll();
+    }
+
+    public function obtenerPorId($idUsuario){
+        return $this->where("idUsuario",$idUsuario)->first();
+    }
+
     public function obtenerPorMail($email){
 
         return $this->where("email",$email)->first();

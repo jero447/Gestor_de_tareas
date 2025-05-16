@@ -76,4 +76,11 @@ class Tarea extends BaseController
     }
 
 
+    public function enviarEmail(){
+
+        
+
+    }
+
+
 }
